@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/Users/yvikulov/Desktop/ecs/build",
+  "command": "/usr/bin/clang++  -I/Users/yvikulov/Desktop/ecs/ECS -I/Users/yvikulov/Desktop/ecs/include -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++11 -o CMakeFiles/ECS.dir/src/ComponentArray.cpp.o -c /Users/yvikulov/Desktop/ecs/src/ComponentArray.cpp",
+  "file": "/Users/yvikulov/Desktop/ecs/src/ComponentArray.cpp"
+},
+{
+  "directory": "/Users/yvikulov/Desktop/ecs/build",
+  "command": "/usr/bin/clang++  -I/Users/yvikulov/Desktop/ecs/ECS -I/Users/yvikulov/Desktop/ecs/include -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++11 -o CMakeFiles/ECS.dir/src/ComponentManager.cpp.o -c /Users/yvikulov/Desktop/ecs/src/ComponentManager.cpp",
+  "file": "/Users/yvikulov/Desktop/ecs/src/ComponentManager.cpp"
+},
+{
+  "directory": "/Users/yvikulov/Desktop/ecs/build",
+  "command": "/usr/bin/clang++  -I/Users/yvikulov/Desktop/ecs/ECS -I/Users/yvikulov/Desktop/ecs/include -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++11 -o CMakeFiles/ECS.dir/src/EntityManager.cpp.o -c /Users/yvikulov/Desktop/ecs/src/EntityManager.cpp",
+  "file": "/Users/yvikulov/Desktop/ecs/src/EntityManager.cpp"
+},
+{
+  "directory": "/Users/yvikulov/Desktop/ecs/build",
+  "command": "/usr/bin/clang++  -I/Users/yvikulov/Desktop/ecs/ECS -I/Users/yvikulov/Desktop/ecs/include -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++11 -o CMakeFiles/ECS.dir/src/Mediator.cpp.o -c /Users/yvikulov/Desktop/ecs/src/Mediator.cpp",
+  "file": "/Users/yvikulov/Desktop/ecs/src/Mediator.cpp"
+},
+{
+  "directory": "/Users/yvikulov/Desktop/ecs/build",
+  "command": "/usr/bin/clang++  -I/Users/yvikulov/Desktop/ecs/ECS -I/Users/yvikulov/Desktop/ecs/include -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++11 -o CMakeFiles/ECS.dir/src/SystemManager.cpp.o -c /Users/yvikulov/Desktop/ecs/src/SystemManager.cpp",
+  "file": "/Users/yvikulov/Desktop/ecs/src/SystemManager.cpp"
+},
+{
+  "directory": "/Users/yvikulov/Desktop/ecs/build",
+  "command": "/usr/bin/clang++  -I/Users/yvikulov/Desktop/ecs/ECS -I/Users/yvikulov/Desktop/ecs/include -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++11 -o CMakeFiles/ECS.dir/src/main.cpp.o -c /Users/yvikulov/Desktop/ecs/src/main.cpp",
+  "file": "/Users/yvikulov/Desktop/ecs/src/main.cpp"
+}
+]

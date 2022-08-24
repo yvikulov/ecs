@@ -15,10 +15,10 @@ namespace ECS
         // ~SystemManager();
 
         template<typename T>
-	    std::shared_ptr<T> registerSystem(void);
+        std::shared_ptr<T> registerSystem(void);
 
         template<typename T>
-	    void setSignature(Signature signature);
+        void setSignature(Signature signature);
 
         void entityDestroyed(Entity entity);
 

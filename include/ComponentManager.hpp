@@ -7,7 +7,7 @@ namespace ECS
     private:
         std::unordered_map<const char*, std::shared_ptr<IComponentArray>> _componentArrays;
         std::unordered_map<const char*, ComponentType> _componentTypes;
-	    ComponentType _nextComponentType;
+        ComponentType _nextComponentType;
 
         template<typename T>
         std::shared_ptr<ComponentArray<T>> getComponentArray(void);
@@ -19,19 +19,19 @@ namespace ECS
         // ~ComponentManager();
 
         template<typename T>
-	    void registerComponent(void);
+        void registerComponent(void);
 
         template<typename T>
-	    ComponentType getComponentType(void);
+        ComponentType getComponentType(void);
 
         template<typename T>
-	    void addComponent(Entity entity, T component);
+        void addComponent(Entity entity, T component);
 
         template<typename T>
-	    void removeComponent(Entity entity);
+        void removeComponent(Entity entity);
 
         template<typename T>
-	    T& getComponent(Entity entity);
+        T& getComponent(Entity entity);
 
         void entityDestroyed(Entity entity);
     };

@@ -25,22 +25,22 @@ namespace ECS
         void registerComponent(void);
 
         template<typename T>
-	    void addComponent(Entity entity, T component);
+        void addComponent(Entity entity, T component);
 
         template<typename T>
-	    void removeComponent(Entity entity);
+        void removeComponent(Entity entity);
 
         template<typename T>
-	    T& getComponent(Entity entity);
+        T& getComponent(Entity entity);
 
         template<typename T>
-	    ComponentType getComponentType(void);
+        ComponentType getComponentType(void);
 
         template<typename T>
-	    std::shared_ptr<T> registerSystem(void);
+        std::shared_ptr<T> registerSystem(void);
 
         template<typename T>
-	    void setSystemSignature(Signature signature);
+        void setSystemSignature(Signature signature);
 
     };
 }

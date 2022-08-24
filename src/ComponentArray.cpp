@@ -2,7 +2,7 @@
 
 // Insert a component into an array of components ------------------------------
 template<typename T>
-void ECS::ComponentArray<T>::InsertData(Entity entity, T component)
+void ECS::ComponentArray<T>::insertData(Entity entity, T component)
 {
     assert(this->_entityToIndexMap.find(entity) == this->_entityToIndexMap.end() &&
         "Component added to same entity more than once");
@@ -17,7 +17,7 @@ void ECS::ComponentArray<T>::InsertData(Entity entity, T component)
 
 // Remove entity from component array ------------------------------------------
 template<typename T>
-void ECS::ComponentArray<T>::RemoveData(Entity entity)
+void ECS::ComponentArray<T>::removeData(Entity entity)
 {
     assert(this->_entityToIndexMap.find(entity) != this->_entityToIndexMap.end() &&
         "Removing non-existent component");
@@ -40,7 +40,7 @@ void ECS::ComponentArray<T>::RemoveData(Entity entity)
 
 // Get a component from an array of components ---------------------------------
 template<typename T>
-T& ECS::ComponentArray<T>::GetData(Entity entity)
+T& ECS::ComponentArray<T>::getData(Entity entity)
 {
     assert(this->_entityToIndexMap.find(entity) != this->_entityToIndexMap.end() &&
         "Retrieving non-existent component");
@@ -50,9 +50,9 @@ T& ECS::ComponentArray<T>::GetData(Entity entity)
 }
 
 template<typename T>
-void ECS::ComponentArray<T>::EntityDestroyed(Entity entity)
+void ECS::ComponentArray<T>::entityDestroyed(Entity entity)
 {
     /* Remove the entity's component if it existed */
     if (this->_entityToIndexMap.find(entity) != this->_entityToIndexMap.end())
-        RemoveData(entity);
+        this->removeData(entity);
 }

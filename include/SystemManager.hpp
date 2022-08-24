@@ -5,19 +5,24 @@ namespace ECS
     class SystemManager
     {
     private:
-        std::unordered_map<const char*, Signature> _signatures{};
-        std::unordered_map<const char*, std::shared_ptr<System>> _systems{};
+        std::unordered_map<const char*, Signature> _signatures;
+        std::unordered_map<const char*, std::shared_ptr<System>> _systems;
 
     public:
-        template<typename T>
-	    std::shared_ptr<T> RegisterSystem(void);
+        // SystemManager(void);
+        // SystemManager(const SystemManager& manager);
+        // SystemManager& operator=(const SystemManager& manager);
+        // ~SystemManager();
 
         template<typename T>
-	    void SetSignature(Signature signature);
+	    std::shared_ptr<T> registerSystem(void);
 
-        void EntityDestroyed(Entity entity);
+        template<typename T>
+	    void setSignature(Signature signature);
 
-        void EntitySignatureChanged(Entity entity, Signature entitySignature);
+        void entityDestroyed(Entity entity);
+
+        void entitySignatureChanged(Entity entity, Signature entitySignature);
 
     };
 }

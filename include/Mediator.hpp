@@ -5,36 +5,42 @@ namespace ECS
     class Mediator
     {
     private:
-        std::unique_ptr<ComponentManager> _componentManager;
         std::unique_ptr<EntityManager> _entityManager;
+        std::unique_ptr<ComponentManager> _componentManager;
         std::unique_ptr<SystemManager> _systemManager;
 
     public:
 
-        void Init(void);
-        Entity CreateEntity(void);
-        void DestroyEntity(Entity entity);
+        // Mediator(void);
+        // Mediator(const Mediator& mediator);
+        // Mediator& operator=(const Mediator& mediator);
+        // ~Mediator();
+
+        void init(void);
+
+        Entity createEntity(void);
+        void destroyEntity(Entity entity);
 
         template<typename T>
-        void RegisterComponent(void);
+        void registerComponent(void);
 
         template<typename T>
-	    void AddComponent(Entity entity, T component);
+	    void addComponent(Entity entity, T component);
 
         template<typename T>
-	    void RemoveComponent(Entity entity);
+	    void removeComponent(Entity entity);
 
         template<typename T>
-	    T& GetComponent(Entity entity);
+	    T& getComponent(Entity entity);
 
         template<typename T>
-	    ComponentType GetComponentType(void);
+	    ComponentType getComponentType(void);
 
         template<typename T>
-	    std::shared_ptr<T> RegisterSystem(void);
+	    std::shared_ptr<T> registerSystem(void);
 
         template<typename T>
-	    void SetSystemSignature(Signature signature);
+	    void setSystemSignature(Signature signature);
 
     };
 }

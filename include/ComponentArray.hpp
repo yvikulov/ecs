@@ -6,7 +6,7 @@ namespace ECS
     {
     public:
         virtual ~IComponentArray() = default;
-        virtual void EntityDestroyed(Entity entity) = 0;
+        virtual void entityDestroyed(Entity entity) = 0;
     };
 
     template<typename T>
@@ -19,10 +19,15 @@ namespace ECS
         std::size_t _size;
         
     public:
-        void InsertData(Entity entity, T component);
-        void RemoveData(Entity entity);
-        T& GetData(Entity entity);
+        // ComponentArray(void);
+        // ComponentArray(const ComponentArray& array);
+        // ComponentArray& operator=(const ComponentArray& array);
+        // ~ComponentArray();
 
-        void EntityDestroyed(Entity Entity) override;
+        void insertData(Entity entity, T component);
+        void removeData(Entity entity);
+        T& getData(Entity entity);
+
+        void entityDestroyed(Entity Entity) override;
     };
 }

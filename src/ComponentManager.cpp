@@ -1,7 +1,7 @@
 #include "ECS.hpp"
 
 template<typename T>
-void ECS::ComponentManager::RegisterComponent()
+void ECS::ComponentManager::registerComponent()
 {
     const char* typeName = typeid(T).name();
 
@@ -19,7 +19,7 @@ void ECS::ComponentManager::RegisterComponent()
 }
 
 template<typename T>
-ECS::ComponentType ECS::ComponentManager::GetComponentType()
+ECS::ComponentType ECS::ComponentManager::getComponentType()
 {
     const char* typeName = typeid(T).name();
 
@@ -31,27 +31,27 @@ ECS::ComponentType ECS::ComponentManager::GetComponentType()
 }
 
 template<typename T>
-void ECS::ComponentManager::AddComponent(Entity entity, T component)
+void ECS::ComponentManager::addComponent(Entity entity, T component)
 {
     /* Add a component to the array for an entity */
-    GetComponentArray<T>()->InsertData(entity, component);
+    this->getComponentArray<T>()->insertData(entity, component);
 }
 
 template<typename T>
-void ECS::ComponentManager::RemoveComponent(Entity entity)
+void ECS::ComponentManager::removeComponent(Entity entity)
 {
     /* Remove a component from the array for an entity */
-    GetComponentArray<T>()->RemoveData(entity);
+    this->getComponentArray<T>()->removeData(entity);
 }
 
 template<typename T>
-T& ECS::ComponentManager::GetComponent(Entity entity)
+T& ECS::ComponentManager::getComponent(Entity entity)
 {
     /* Get a reference to a component from the array for an entity */
-    return GetComponentArray<T>()->GetData(entity);
+    return this->getComponentArray<T>()->getData(entity);
 }
 
-void ECS::ComponentManager::EntityDestroyed(Entity entity)
+void ECS::ComponentManager::entityDestroyed(Entity entity)
 {
     /* Notify each component array that an entity has been destroyed */
     /* If it has a component for that entity, it will remove it */
@@ -59,12 +59,12 @@ void ECS::ComponentManager::EntityDestroyed(Entity entity)
     {
         auto const& component = pair.second;
 
-        component->EntityDestroyed(entity);
+        component->entityDestroyed(entity);
     }
 }
 
 template<typename T>
-std::shared_ptr<ECS::ComponentArray<T>> ECS::ComponentManager::GetComponentArray()
+std::shared_ptr<ECS::ComponentArray<T>> ECS::ComponentManager::getComponentArray()
 {
     const char* typeName = typeid(T).name();
 

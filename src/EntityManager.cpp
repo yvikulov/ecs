@@ -9,7 +9,7 @@ ECS::EntityManager::EntityManager(void)
 }
 
 // EntityManager create the new entity -----------------------------------------
-ECS::Entity ECS::EntityManager::CreateEntity(void)
+ECS::Entity ECS::EntityManager::createEntity(void)
 {
     assert(this->_livingEntityCount < MAX_ENTITIES &&
         "Too many entities in existence");
@@ -23,7 +23,7 @@ ECS::Entity ECS::EntityManager::CreateEntity(void)
 }
 
 // EntityManager destroy the entity --------------------------------------------
-void ECS::EntityManager::DestroyEntity(Entity entity)
+void ECS::EntityManager::destroyEntity(Entity entity)
 {
     assert(entity < MAX_ENTITIES && "Entity out of range");
 
@@ -36,7 +36,7 @@ void ECS::EntityManager::DestroyEntity(Entity entity)
 }
 
 // Set the signature of used components for an entity --------------------------
-void ECS::EntityManager::SetSignature(Entity entity, Signature signature)
+void ECS::EntityManager::setSignature(Entity entity, Signature signature)
 {
     assert(entity < MAX_ENTITIES && "Entity out of range");
 

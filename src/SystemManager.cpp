@@ -1,7 +1,7 @@
 #include "ECS.hpp"
 
 template<typename T>
-std::shared_ptr<T> ECS::SystemManager::RegisterSystem()
+std::shared_ptr<T> ECS::SystemManager::registerSystem()
 {
     const char* typeName = typeid(T).name();
 
@@ -15,7 +15,7 @@ std::shared_ptr<T> ECS::SystemManager::RegisterSystem()
 }
 
 template<typename T>
-void ECS::SystemManager::SetSignature(Signature signature)
+void ECS::SystemManager::setSignature(Signature signature)
 {
     const char* typeName = typeid(T).name();
 
@@ -25,7 +25,7 @@ void ECS::SystemManager::SetSignature(Signature signature)
     this->_signatures.insert({typeName, signature});
 }
 
-void ECS::SystemManager::EntityDestroyed(Entity entity)
+void ECS::SystemManager::entityDestroyed(Entity entity)
 {
     /* Erase a destroyed entity from all system lists */
     /* mEntities is a set so no check needed */
@@ -37,7 +37,7 @@ void ECS::SystemManager::EntityDestroyed(Entity entity)
     }
 }
 
-void ECS::SystemManager::EntitySignatureChanged(Entity entity, Signature entitySignature)
+void ECS::SystemManager::entitySignatureChanged(Entity entity, Signature entitySignature)
 {
     /* Notify each system that an entity's signature changed */
     for (auto const& pair : this->_systems)

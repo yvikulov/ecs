@@ -1,6 +1,6 @@
 #include "ECS.hpp"
 
-void ECS::Mediator::Init(void)
+void ECS::Mediator::init(void)
 {
     this->_componentManager = std::unique_ptr<ComponentManager>(new ComponentManager());
     this->_entityManager = std::unique_ptr<EntityManager>(new EntityManager());
@@ -8,68 +8,68 @@ void ECS::Mediator::Init(void)
     
 }
 
-ECS::Entity ECS::Mediator::CreateEntity(void)
+ECS::Entity ECS::Mediator::createEntity(void)
 {
-    return this->_entityManager->CreateEntity();
+    return this->_entityManager->createEntity();
 }
 
-void ECS::Mediator::DestroyEntity(Entity entity)
+void ECS::Mediator::destroyEntity(Entity entity)
 {
-    this->_entityManager->DestroyEntity(entity);
-    this->_componentManager->EntityDestroyed(entity);
-    this->_systemManager->EntityDestroyed(entity);
-}
-
-template<typename T>
-void ECS::Mediator::RegisterComponent()
-{
-    this->_componentManager->RegisterComponent<T>();
+    this->_entityManager->destroyEntity(entity);
+    this->_componentManager->entityDestroyed(entity);
+    this->_systemManager->entityDestroyed(entity);
 }
 
 template<typename T>
-void ECS::Mediator::AddComponent(Entity entity, T component)
+void ECS::Mediator::registerComponent()
 {
-    this->_componentManager->AddComponent<T>(entity, component);
-
-    auto signature = this->_entityManager->GetSignature(entity);
-    signature.set(this->_componentManager->GetComponentType<T>(), true);
-    this->_entityManager->SetSignature(entity, signature);
-
-    this->_systemManager->EntitySignatureChanged(entity, signature);
+    this->_componentManager->registerComponent<T>();
 }
 
 template<typename T>
-void ECS::Mediator::RemoveComponent(Entity entity)
+void ECS::Mediator::addComponent(Entity entity, T component)
 {
-    this->_componentManager->RemoveComponent<T>(entity);
+    this->_componentManager->addComponent<T>(entity, component);
 
-    auto signature = this->_entityManager->GetSignature(entity);
-    signature.set(this->_componentManager->GetComponentType<T>(), false);
-    this->_entityManager->SetSignature(entity, signature);
+    auto signature = this->_entityManager->getSignature(entity);
+    signature.set(this->_componentManager->getComponentType<T>(), true);
+    this->_entityManager->setSignature(entity, signature);
 
-    this->_systemManager->EntitySignatureChanged(entity, signature);
+    this->_systemManager->entitySignatureChanged(entity, signature);
 }
 
 template<typename T>
-T& ECS::Mediator::GetComponent(Entity entity)
+void ECS::Mediator::removeComponent(Entity entity)
 {
-    return this->_componentManager->GetComponent<T>(entity);
+    this->_componentManager->removeComponent<T>(entity);
+
+    auto signature = this->_entityManager->getSignature(entity);
+    signature.set(this->_componentManager->getComponentType<T>(), false);
+    this->_entityManager->setSignature(entity, signature);
+
+    this->_systemManager->entitySignatureChanged(entity, signature);
 }
 
 template<typename T>
-ECS::ComponentType ECS::Mediator::GetComponentType()
+T& ECS::Mediator::getComponent(Entity entity)
 {
-    return this->_componentManager->GetComponentType<T>();
+    return this->_componentManager->getComponent<T>(entity);
 }
 
 template<typename T>
-std::shared_ptr<T> ECS::Mediator::RegisterSystem()
+ECS::ComponentType ECS::Mediator::getComponentType()
 {
-    return this->_systemManager->RegisterSystem<T>();
+    return this->_componentManager->getComponentType<T>();
 }
 
 template<typename T>
-void ECS::Mediator::SetSystemSignature(Signature signature)
+std::shared_ptr<T> ECS::Mediator::registerSystem()
 {
-    this->_systemManager->SetSignature<T>(signature);
+    return this->_systemManager->registerSystem<T>();
+}
+
+template<typename T>
+void ECS::Mediator::setSystemSignature(Signature signature)
+{
+    this->_systemManager->setSignature<T>(signature);
 }
